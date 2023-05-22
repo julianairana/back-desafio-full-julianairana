@@ -1,8 +1,8 @@
 import { Client } from "./clients.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
 
-enum GenderContact {
-    DEFAULT = "Prefer not to say",
+export enum GenderContact {
+    DEFAULT = "not informed",
     MALE = "male",
     FEMALE = "female",
     NOBINARY = "no binary",

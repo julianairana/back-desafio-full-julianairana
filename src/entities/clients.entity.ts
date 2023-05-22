@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BeforeInsert, Before
 import { Contact } from "./contact.entity";
 import { getRounds, hashSync } from "bcryptjs";
 
-enum GenderClient {
+export enum GenderClient {
     DEFAULT = "Prefer not to say",
     MALE = "male",
     FEMALE = "female",
