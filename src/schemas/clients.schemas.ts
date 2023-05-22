@@ -3,7 +3,7 @@ import { GenderClient } from "../entities/clients.entity";
 
 export const clientCreateSchema = z.object({
 
-    fullname: z.string().max(45),
+    name: z.string().max(45),
 
     email: z.string().email().max(45),
 
@@ -17,7 +17,7 @@ export const clientCreateSchema = z.object({
 export const returnClientSchema = clientCreateSchema.extend({
     id: z.number(),
 
-    dateRegister: z.string().datetime(),
+    dateRegister: z.date().optional(),
     
 }).omit({password: true})
 

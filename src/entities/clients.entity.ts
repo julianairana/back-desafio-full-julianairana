@@ -15,7 +15,7 @@ export class Client {
   id: number;
 
   @Column({type:"varchar", length: 45})
-  fullName: string;
+  name: string;
 
   @Column({type:"varchar", length: 45, unique: true})
   email: string;
