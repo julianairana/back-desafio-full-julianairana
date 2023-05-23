@@ -1,4 +1,4 @@
-import cors from "cors"
+import cors from "cors";
 import 'express-async-errors';
 import express, { Application } from "express";
 import { clientsRoutes } from "./routers/clients.routes";

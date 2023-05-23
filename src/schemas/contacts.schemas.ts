@@ -3,7 +3,7 @@ import { GenderContact } from "../entities/contact.entity";
 
 export const contactCreateSchema = z.object({
 
-    fullname: z.string().max(45),
+    fullName: z.string().max(45),
 
     email: z.string().email().max(45),
 
@@ -15,7 +15,7 @@ export const contactCreateSchema = z.object({
 export const returnContactSchema = contactCreateSchema.extend({
     id: z.number(),
 
-    dateRegister: z.string().datetime(),
+    dateRegister: z.date().optional(),
 });
 
 export const returnAllContactSchema = returnContactSchema.array();
