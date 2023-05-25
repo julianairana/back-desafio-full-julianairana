@@ -10,16 +10,16 @@ export enum GenderContact {
 
 @Entity("contact")
 export class Contact {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("increment")
   id: number;
 
   @Column({type:"varchar", length: 45})
   fullName: string;
 
-  @Column({type:"varchar", length: 45, unique: true})
+  @Column({type:"varchar", length: 45})
   email: string;
 
-  @Column({type:"varchar", length: 45, unique: true})
+  @Column({type:"varchar", length: 45})
   phone: string;
 
   @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })

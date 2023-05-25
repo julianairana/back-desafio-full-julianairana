@@ -1,18 +1,31 @@
 import { AppDataSource } from "../../data-source";
-import { Contact } from "../../entities";
+import { Client, Contact } from "../../entities";
+import { AppError } from "../../errors";
+import { IClientRepo } from "../../interfaces/clients.interfaces";
 import { IContact, IContactRepo, IContactReturn } from "../../interfaces/contacts.interfaces";
 import { returnContactSchema } from "../../schemas/contacts.schemas";
 
-export const createContactService = async (contactData: IContact): Promise<IContactReturn> => {
+export const createContactService = async (contactData: IContact, clientId: number): Promise<IContactReturn> => {
 
-    const contactRepository: IContactRepo = AppDataSource.getRepository(Contact)
+    const clientRepository: IClientRepo = AppDataSource.getRepository(Client)
 
-    const contact: Contact = contactRepository.create(contactData)
-
-    await contactRepository.save(contact)
+    const client = await clientRepository.findOneBy({
+        id: clientId,
+      });
     
-    const newContact = returnContactSchema.parse(contact)
+      if (!client) {
+        throw new AppError("Client not found", 404);
+      }
     
-    return newContact
+      const contactRepository: IContactRepo = AppDataSource.getRepository(Contact);
+    
+      const contact: Contact = contactRepository.create({
+        ...contactData,
+        client: client!,
+      });
+    
+      await contactRepository.save(contact);
+    
+      return returnContactSchema.parse(contact);
 
 }

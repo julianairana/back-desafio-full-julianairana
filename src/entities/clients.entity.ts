@@ -23,7 +23,7 @@ export class Client {
   @Column({type:"varchar", length: 120})
   password: string
 
-  @Column({type:"varchar", length: 45, unique: true})
+  @Column({type:"varchar", length: 45})
   phone: string;
 
   @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
