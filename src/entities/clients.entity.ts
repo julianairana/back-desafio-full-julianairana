@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BeforeInsert, BeforeUpdate } from "typeorm";
 import { Contact } from "./contact.entity";
 import { getRounds, hashSync } from "bcryptjs";
+import { optional } from "zod";
 
 export enum GenderClient {
     DEFAULT = "Prefer not to say",
@@ -21,10 +22,13 @@ export class Client {
   email: string;
 
   @Column({type:"varchar", length: 120})
-  password: string
+  password: string;
 
   @Column({type:"varchar", length: 45})
   phone: string;
+
+  @Column({type:"text", nullable: true})
+  image?: string | undefined | null
 
   @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
   dateRegister: Date;

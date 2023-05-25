@@ -11,6 +11,8 @@ export const clientCreateSchema = z.object({
 
     phone: z.string().max(45),
 
+    image: z.string().nullish(),
+
     gender: z.nativeEnum(GenderClient),
 })
 

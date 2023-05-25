@@ -6,7 +6,7 @@ export const contactCreateSchema = z.object({
 
     fullName: z.string().max(45),
 
-    email: z.string().email().max(45),
+    email: z.string().email().max(45).nullish(),
 
     phone: z.string().max(45),
 
