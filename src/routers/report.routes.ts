@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import PDFDocument, { fillColor } from "pdfkit";
+import PDFDocument from "pdfkit";
 import { Client } from "../entities";
 import { AppDataSource } from "../data-source";
 import { returnClientSchema } from "../schemas/clients.schemas";
