@@ -1,7 +1,7 @@
-import { AppDataSource } from "../../data-source"
-import { Client } from "../../entities"
-import { IClient, IClientRepo, IClientReturn } from "../../interfaces/clients.interfaces"
-import { returnClientSchema } from "../../schemas/clients.schemas"
+import { AppDataSource } from "../../data-source";
+import { Client } from "../../entities";
+import { IClient, IClientRepo, IClientReturn } from "../../interfaces/clients.interfaces";
+import { returnClientSchema } from "../../schemas/clients.schemas";
 
 export const createClientService = async (clientData: IClient): Promise<IClientReturn> => {
 

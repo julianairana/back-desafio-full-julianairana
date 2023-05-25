@@ -25,4 +25,4 @@ export const ensureTokenIsValidMiddleware = async (request: Request, response: R
         return next()
     })
 
-}
+};

@@ -11,21 +11,21 @@ export const createContactService = async (contactData: IContact, clientId: numb
 
     const client = await clientRepository.findOneBy({
         id: clientId,
-      });
+      })
     
       if (!client) {
-        throw new AppError("Client not found", 404);
+        throw new AppError("Client not found", 404)
       }
     
-      const contactRepository: IContactRepo = AppDataSource.getRepository(Contact);
+      const contactRepository: IContactRepo = AppDataSource.getRepository(Contact)
     
       const contact: Contact = contactRepository.create({
         ...contactData,
         client: client!,
-      });
+      })
     
-      await contactRepository.save(contact);
+      await contactRepository.save(contact)
     
-      return returnContactSchema.parse(contact);
+      return returnContactSchema.parse(contact)
 
 }

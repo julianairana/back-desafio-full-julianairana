@@ -3,10 +3,9 @@ import { Client } from "../../entities";
 import { IClientRepo, IContactClientReturn } from "../../interfaces/clients.interfaces";
 import { returnClientSchema } from "../../schemas/clients.schemas";
 
-export const retrieveClientService = async (
-    id: number
-  ): Promise<IContactClientReturn> => {
-    const clientRepository: IClientRepo = AppDataSource.getRepository(Client);
+export const retrieveClientService = async (id: number): Promise<IContactClientReturn> => {
+  
+    const clientRepository: IClientRepo = AppDataSource.getRepository(Client)
   
     const findClient = await clientRepository.findOne({
       where: {
@@ -15,11 +14,12 @@ export const retrieveClientService = async (
       relations: {
         contact: true,
       },
-    });
+    })
   
-    const client = returnClientSchema.parse(findClient!);
+    const client = returnClientSchema.parse(findClient!)
   
-    const contact = findClient ? findClient.contact : [];
+    const contact = findClient ? findClient.contact : []
   
-    return { client, contact };
-  };
+    return { client, contact }
+
+  }

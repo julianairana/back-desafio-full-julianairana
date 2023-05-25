@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from "express"
-import { AppDataSource } from "../data-source"
-import { Client, Contact } from "../entities";
+import { Request, Response, NextFunction } from "express";
+import { AppDataSource } from "../data-source";
+import { Client } from "../entities";
 
 export const ensureValidClientMiddleware = async (request: Request, response: Response, next: NextFunction) => {
 
@@ -29,4 +29,4 @@ export const ensureValidClientMiddleware = async (request: Request, response: Re
     }
 
     return next()
-}
+};

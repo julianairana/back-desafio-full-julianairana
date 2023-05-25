@@ -19,4 +19,4 @@ export const ensureEmailExistsMiddleware = async (request: Request, response: Re
     }
 
     return next()
-}
+};

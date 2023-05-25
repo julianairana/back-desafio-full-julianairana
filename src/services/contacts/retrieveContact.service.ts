@@ -4,10 +4,9 @@ import { IContactRepo, IContactReturn } from "../../interfaces/contacts.interfac
 import { returnContactClientSchema } from "../../schemas/contacts.schemas";
 
 
-export const retrieveContactService = async (
-  id: number
-): Promise<IContactReturn> => {
-  const contactRepository: IContactRepo = AppDataSource.getRepository(Contact);
+export const retrieveContactService = async (id: number): Promise<IContactReturn> => {
+
+  const contactRepository: IContactRepo = AppDataSource.getRepository(Contact)
 
   const findContact = await contactRepository.findOne({
     where: {
@@ -16,9 +15,10 @@ export const retrieveContactService = async (
     relations: {
       client: true,
     },
-  });
+  })
 
-  const contact = returnContactClientSchema.parse(findContact!);
+  const contact = returnContactClientSchema.parse(findContact!)
 
-  return contact;
-};
+  return contact
+
+}

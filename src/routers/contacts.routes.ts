@@ -12,7 +12,7 @@ contactsRoutes.post("", ensureTokenIsValidMiddleware, ensureDataIsValidMiddlewar
 
 contactsRoutes.get("", ensureTokenIsValidMiddleware, listContactsController)
 
-contactsRoutes.get("/:id", ensureTokenIsValidMiddleware, ensureContactPermissionsMiddleware,  retrieveContactController)
+contactsRoutes.get("/:id", ensureTokenIsValidMiddleware, ensureContactExistMiddleware, ensureContactPermissionsMiddleware,  retrieveContactController)
 
 contactsRoutes.patch("/:id", ensureTokenIsValidMiddleware, ensureContactExistMiddleware, ensureContactPermissionsMiddleware, ensureDataIsValidMiddleware(updateContactSchema), updateContactController)
 

@@ -1,7 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BeforeInsert, BeforeUpdate } from "typeorm";
 import { Contact } from "./contact.entity";
 import { getRounds, hashSync } from "bcryptjs";
-import { optional } from "zod";
 
 export enum GenderClient {
     DEFAULT = "Prefer not to say",

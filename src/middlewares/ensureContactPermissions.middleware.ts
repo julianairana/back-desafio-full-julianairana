@@ -24,4 +24,4 @@ export const ensureContactPermissionsMiddleware = async (request: Request, respo
   }
 
   return next()
-}
+};
