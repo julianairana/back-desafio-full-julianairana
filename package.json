@@ -17,8 +17,6 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js",
     "dev": "ts-node-dev --ignore-watch node_modules --rs --cls src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs"
   },
@@ -33,6 +31,8 @@
     "pg": "^8.11.0",
     "pg-format": "^1.0.4",
     "reflect-metadata": "^0.1.13",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
     "typeorm": "0.3.15",
     "zod": "^3.21.4"
   }
