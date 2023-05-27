@@ -13,7 +13,7 @@ clientsRoutes.post("", ensureEmailExistsMiddleware, ensureDataIsValidMiddleware(
 
 clientsRoutes.get("", ensureTokenIsValidMiddleware, listClientsController)
 
-clientsRoutes.get("/:id", ensureTokenIsValidMiddleware, ensureClientExistMiddleware, ensureValidClientMiddleware, retrieveClientsController)
+clientsRoutes.get("/:id", ensureTokenIsValidMiddleware, ensureClientExistMiddleware, retrieveClientsController)
 
 clientsRoutes.patch("/:id", ensureTokenIsValidMiddleware, ensureClientExistMiddleware, ensureValidClientMiddleware, ensureDataIsValidMiddleware(updateClientSchema), updateClientController)
 

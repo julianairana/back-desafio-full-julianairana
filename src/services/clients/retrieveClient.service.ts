@@ -3,13 +3,13 @@ import { Client } from "../../entities";
 import { IClientRepo, IContactClientReturn } from "../../interfaces/clients.interfaces";
 import { returnClientSchema } from "../../schemas/clients.schemas";
 
-export const retrieveClientService = async (id: number): Promise<IContactClientReturn> => {
+export const retrieveClientService = async (id: string): Promise<IContactClientReturn> => {
   
     const clientRepository: IClientRepo = AppDataSource.getRepository(Client)
   
     const findClient = await clientRepository.findOne({
       where: {
-        id: id,
+        id: parseInt(id),
       },
       relations: {
         contact: true,
