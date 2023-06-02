@@ -1,3 +1,33 @@
+<h1 align="center" font-family="pattaya">People Contact</h1><br>
+
+<h2 font-family="pattaya">Tecnologias utilizadas</h2>
+<div style="display: inline_block"><br>
+<img align="center" alt="Juliana-Ts" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
+   <img align="center" alt="Juliana-Node" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+  <img align="center" alt="Juliana-postgreSQL" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">  
+</div><br>
+
+<h2 font-family="pattaya">Descrição</h2><br>
+<p font-family="robotto" font-size="16px" line-height="34px" align="justify">
+A API consiste em uma aplicação de agenda digital, onde um cliente pode criar um perfil, cadastrar contatos, atualizar ou deletar o seu perfil e o de seus contatos também.
+</p><br>
+
+<h2 font-family="pattaya">Libs utilizadas</h2><br>
+<ul style="display: inline_block">
+<li font-family="robotto" font-size="16px">bcryptjs: "^2.4.3",</li>
+<li font-family="robotto" font-size="16px">cors: "^2.8.5",</li>
+<li font-family="robotto" font-size="16px">dotenv: "^16.0.3"</li>
+<li font-family="robotto" font-size="16px">express: "^4.18.2"</li>
+<li font-family="robotto" font-size="16px">express-async-errors: "^3.1.1"</li>
+<li font-family="robotto" font-size="16px">jsonwebtoken: "^9.0.0"</li>
+<li font-family="robotto" font-size="16px">pdfkit: "^0.13.0"</li>
+<li font-family="robotto" font-size="16px">pg: "^8.11.0"</li>
+<li font-family="robotto" font-size="16px">pg-format: "^1.0.4"</li>
+<li font-family="robotto" font-size="16px">reflect-metadata: "^0.1.13">
+<li font-family="robotto" font-size="16px">typeorm: "0.3.15"</li>
+<li font-family="robotto" font-size="16px">zod: "^3.21.4"</li>
+</ul><br>
+
 # Documentação da API
 
 ## Tabela de Conteúdos
@@ -34,7 +64,7 @@ http://localhost:3000
 
 Diagrama ER da API definindo bem as relações entre as tabelas do banco de dados.
 
-![DER](file:///C:/Users/Usuario/Downloads/people_contact.drawio.pdf)
+![DER](people_contact.drawio.png)
 
 ---
 
@@ -96,6 +126,8 @@ Autenticação realizada pelo token do Cliente.
 	- [GET - /contacts/:contact_id](#33-listar-contato-por-id)
 	- [PATCH - /contacts/:contact_id](#34-atualizar-contato-por-id)
 	- [DELETE - /contacts/:contact_id](#35-deletar-contato-por-id)
+- [Report](#4-report)
+    - [GET - /report](#41-relatorio-de-contatos)
 
 ---
 
@@ -107,13 +139,13 @@ O objeto Client é definido como:
 | Campo       | Tipo   | Descrição                                       |
 | ----------- |--------|-------------------------------------------------|
 | id          | string | Identificador único do cliente.                 |
-| name        | string | O nome do do cliente.                           |
-| email       | string | O e-mail do do cliente.                         |
-| password    | string | A senha de acesso do do cliente.                |
-| phone       | string | O número do do cliente.                         |
-| image       | string | A imagem do do cliente.                         |
-| dateRegister| date   | A data de registro do do cliente.               |
-| gender      | enum | O gênero do do cliente.                           |
+| name        | string | O nome do cliente.                           |
+| email       | string | O e-mail do  cliente.                         |
+| password    | string | A senha de acesso do cliente.                |
+| phone       | string | O número do cliente.                         |
+| image       | string | A imagem do cliente.                         |
+| dateRegister| date   | A data de registro do cliente.               |
+| gender      | enum | O gênero do cliente.                           |
 
 ### Endpoints
 
@@ -431,8 +463,8 @@ O objeto Login é definido como:
 
 | Campo       | Tipo   | Descrição                                       |
 | ----------- |--------|-------------------------------------------------|
-| email       | string | O e-mail do do cliente.                         |
-| password    | string | A senha de acesso do do cliente.                |
+| email       | string | O e-mail do cliente.                         |
+| password    | string | A senha de acesso do cliente.                |
 
 ### Endpoints
 
@@ -500,11 +532,11 @@ O objeto Contact é definido como:
 | Campo       | Tipo   | Descrição                                       |
 | ----------- |--------|-------------------------------------------------|
 | id          | string | Identificador único do contato.                 |
-| fullName    | string | O nome do do contato.                           |
-| email       | string | O e-mail do do contato.                         |
-| phone       | string | O número do do contato.                         |
-| dateRegister| date   | A data de registro do do contato.               |
-| gender      | enum   | O gênero do do contato.                         |
+| fullName    | string | O nome do contato.                           |
+| email       | string | O e-mail do contato.                         |
+| phone       | string | O número do contato.                         |
+| dateRegister| date   | A data de registro do contato.               |
+| gender      | enum   | O gênero do contato.                         |
 
 ### Endpoints
 
@@ -757,6 +789,69 @@ vazio
 |----------------|-----------|
 | 404 Not Found   | Contact not found. |
 | 401 Unauthorized   | You don`t have permissions. |
+
+## 4. **Relatório**
+[ Voltar para os Endpoints ](#5-endpoints)
+
+O objeto Relatório é definido como:
+
+| Campo       | Tipo   | Descrição                                       |
+| ----------- |--------|-------------------------------------------------|
+| name/fullName    | string | O nome do cliente e do contato.                           |
+| email       | string | O e-mail do cliente e do contato.                         |
+| phone       | string | O número do cliente e do contato.                         |
+| dateRegister| date   | A data de registro do cliente e do contato.               |
+| gender      | enum   | O gênero do cliente e do contato.                         |
+
+### Endpoints
+
+| Método   | Rota         | Descrição                               |
+|----------|------------  |-----------------------------------------|
+| GET      | /report     | Lista todos os contatos de um cliente em pdf                |
+
+
+---
+
+### 4.1. **Listando Relatório de Contatos**
+
+[ Voltar aos Endpoints ](#5-endpoints)
+
+### `/report`
+
+### Exemplo de Request:
+```
+GET /report
+Host: http://localhost:3000
+Authorization: Token do cliente
+Content-type: application/json
+```
+
+### Corpo da Requisição:
+```json
+Vazio
+```
+
+### Exemplo de Response:
+```
+200 OK
+```
+```pdf
+Lista de Contatos
+ Cliente: João, E-mail:joao@mail.com, Telefone: 114583758373, Gender:
+female, Data: Tue
+May 30 2023 21:08:42 GMT-0300 (Horário Padrão de Brasília)
+Contatos:
+ Nome: Maria , E-mail: maria@mail.com, Telefone: 11768657576, Gender: female, Data:
+Tue May 30 2023 21:21:30 GMT-0300 (Horário Padrão de Brasília)
+ Nome: José, E-mail: jose@mail.com, Telefone: 115850040556, Gender: male, Data:
+Tue May 30 2023 21:21:30 GMT-0300 (Horário Padrão de Brasília)
+```
+
+### Possíveis Erros:
+
+| 401 Unauthorized   | You don`t have permissions or invalid token. |
+
+---
 
 
 
