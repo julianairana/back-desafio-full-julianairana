@@ -35,7 +35,7 @@ routesReport.get(
       doc
         .fontSize(12)
         .text(
-          ` Usuario: ${validateClient.name}, E-mail:${validateClient.email}, Telefone: ${validateClient.phone}, Data: ${validateClient.dateRegister}`
+          ` Cliente: ${validateClient.name}, E-mail:${validateClient.email}, Telefone: ${validateClient.phone}, Gender: ${validateClient.gender}, Data: ${validateClient.dateRegister}, `
         )
         .moveDown();
       doc.fontSize(14).text("Contatos:", { align: "left" }).moveDown();
@@ -43,7 +43,7 @@ routesReport.get(
         doc
           .fontSize(10)
           .text(
-            ` Nome: ${contact.fullName}, E-mail: ${contact.email}, Telefone: ${contact.phone}`
+            ` Nome: ${contact.fullName}, E-mail: ${contact.email}, Telefone: ${contact.phone}, Gender: ${contact.gender}, Data: ${contact.dateRegister}`
           );
       });
       doc.end();
